@@ -1,0 +1,754 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TruthOrDare",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://truthordare-game.herokuapp.com",
+      "variables": {}
+    },
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/user/{userId}/question": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "userId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Create Question",
+        "operationId": "CreateQuestion",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQuestionRequest"
+              },
+              "example": {
+                "content": "thịnh có bồ chưa ? ",
+                "rule": "truth"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Get All Question",
+        "operationId": "GetAllQuestion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/user/question/{id_question}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id_question",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "id_question"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Get Question",
+        "operationId": "GetQuestion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Edit Question",
+        "operationId": "EditQuestion",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditQuestionRequest"
+              },
+              "example": {
+                "content": "thành có thích hân không ? ",
+                "rule": "truth"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/user/question/{question_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "question_id",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "question_id"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Delete Question",
+        "operationId": "DeleteQuestion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://example.com",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/user/{userId}/QuestionInPackage/{id_question}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "userId"
+        },
+        {
+          "in": "path",
+          "name": "id_question",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "id_question"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "Choose question",
+        "operationId": "Choosequestion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/user/{userId}/question/{rule}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "userId"
+        },
+        {
+          "in": "path",
+          "name": "rule",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "rule"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Question"
+        ],
+        "summary": "GetAllQuestionFocusRule",
+        "operationId": "GetAllQuestionFocusRule",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/package": {
+      "post": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Create Package",
+        "operationId": "CreatePackage",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackageRequest"
+              },
+              "example": {
+                "name": "18+"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Get All Package",
+        "operationId": "GetAllPackage",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/package/{package_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "package_id",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "package_id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Get Package",
+        "operationId": "GetPackage",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://example.com",
+            "variables": {}
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Edit Package",
+        "operationId": "EditPackage",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditPackageRequest"
+              },
+              "example": {
+                "name": "Học đường"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://example.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Delete Package",
+        "operationId": "DeletePackage",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/package/{packageId}/question/create": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "packageId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "packageId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Create Question For Package",
+        "operationId": "CreateQuestionForPackage",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateQuestionForPackageRequest"
+              },
+              "example": {
+                "content": "Bạn đã từng quan hệ với bao nhiêu người?",
+                "rule": "truth"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/package/{packageId}/question/{rule}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "packageId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "packageId"
+        },
+        {
+          "in": "path",
+          "name": "rule",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "rule"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Get Question In Package",
+        "operationId": "GetQuestionInPackage",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/package/{packageId}/question": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "packageId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "packageId"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "summary": "Get Question In Package Focus Role",
+        "operationId": "GetQuestionInPackageFocusRole",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/user/{userId}/package/{packageId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "userId"
+        },
+        {
+          "in": "path",
+          "name": "packageId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "packageId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Install"
+        ],
+        "summary": "Install Package",
+        "operationId": "InstallPackage",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/user/{userId}/packageinstalled": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "userId",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "description": "userId"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Install"
+        ],
+        "summary": "Get Package Installed",
+        "operationId": "GetPackageInstalled",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:3000",
+            "variables": {}
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateQuestionRequest": {
+        "title": "CreateQuestionRequest",
+        "required": [
+          "content",
+          "rule"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "content": "thịnh có bồ chưa ? ",
+          "rule": "truth"
+        }
+      },
+      "EditQuestionRequest": {
+        "title": "EditQuestionRequest",
+        "required": [
+          "content",
+          "rule"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "content": "thành có thích hân không ? ",
+          "rule": "truth"
+        }
+      },
+      "CreatePackageRequest": {
+        "title": "CreatePackageRequest",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "18+"
+        }
+      },
+      "EditPackageRequest": {
+        "title": "EditPackageRequest",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Học đường"
+        }
+      },
+      "CreateQuestionForPackageRequest": {
+        "title": "CreateQuestionForPackageRequest",
+        "required": [
+          "content",
+          "rule"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "content": "Bạn đã từng quan hệ với bao nhiêu người?",
+          "rule": "truth"
+        }
+      },
+      "DeletePackageRequest": {
+        "title": "DeletePackageRequest",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "tình yêu"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Question",
+      "description": ""
+    },
+    {
+      "name": "Package",
+      "description": ""
+    },
+    {
+      "name": "Install",
+      "description": ""
+    }
+  ]
+}
